@@ -1,0 +1,31 @@
+{
+  "name": "assessment-backend",
+  "version": "1.0.0",
+  "description": "fav-api-backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "keywords": [
+    "crud",
+    "api",
+    "rest",
+    "backend",
+    "node",
+    "express",
+    "mongoose",
+    "nodemon"
+  ],
+  "author": "Jessica Martinez Alee",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0", 
+    "nodemon": "^2.0.19"
+  }
+}
