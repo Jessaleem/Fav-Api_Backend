@@ -4,7 +4,8 @@
   "description": "fav-api-backend",
   "main": "index.js",
   "scripts": {
-    "test": "start"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [
     "crud",
@@ -20,12 +21,15 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.2",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mongoose": "^6.5.4",
+    "mongoose-validator": "^2.1.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.26.0", 
+    "eslint-plugin-import": "^2.26.0",
     "nodemon": "^2.0.19"
   }
 }
