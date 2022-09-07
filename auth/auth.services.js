@@ -12,7 +12,7 @@ function signToken(payload) {
 
 function verfyToken(token) {
   try {
-    const payload = jsonToken.verify(token, process.env.JSW_KET_WORD);
+    const payload = jsonToken.verify(token, process.env.JSWT_KEY);
     return payload;
   } catch {
     return null;
@@ -27,7 +27,6 @@ async function isAuthenticated(req, res, next) {
   }
 
   const token = authHeader.split(' ')[1];
-
   const decoded = await verfyToken(token);
   if (!decoded) {
     return res.status(401).json({ message: 'Unauthorized' });
