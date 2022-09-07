@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
   },
   favList: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'FavList',
+    ref: 'favoriteList',
     required: true,
   },
 }, { timestamps: true });
