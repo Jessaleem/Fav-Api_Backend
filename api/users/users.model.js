@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -7,6 +8,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
     unique: true,
     lowercase: true,
+    match: [/.+\@.+\..+/, 'Please enter a valid email'],
   },
   password: {
     type: String,
