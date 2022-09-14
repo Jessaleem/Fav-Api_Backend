@@ -12,6 +12,11 @@ const FavItemsSchema = new mongoose.Schema({
   link: {
     type: String,
   },
+  favList: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'favoriteList',
+    required: true,
+  },
 }, { timestamps: true });
 
 const FavItem = mongoose.model('favItem', FavItemsSchema);

@@ -9,6 +9,11 @@ const FavListSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'favItem',
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+    required: true,
+  },
 }, { timeStamps: true });
 
 const FavList = mongoose.model('favoriteList', FavListSchema);
