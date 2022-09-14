@@ -6,11 +6,18 @@ const
     deleteFavsList,
   } = require('./favLists.services');
 
+const { findUserById } = require('../users/users.services');
+
 async function createFavListHandler(req, res) {
   const data = req.body;
-  const { _id } = req.user;
+  const { id } = req.user;
   try {
-    const list = await createFavsList({ ...data, user: _id });
+    const user = await findUserById(id).populate('favList');
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    const list = await createFavsList(data);
     return res.status(201).json(list);
   } catch (error) {
     console.log(error);

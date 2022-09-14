@@ -1,8 +1,7 @@
 const FavItem = require('./favItems.model');
 
 function createFavItem(item) {
-  return FavItem.create(item)
-    .populate('favList');
+  return FavItem.create(item);
 }
 
 module.exports = {

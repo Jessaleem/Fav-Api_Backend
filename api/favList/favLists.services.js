@@ -10,7 +10,7 @@ function getAllFavsList() {
 
 function getFavsList(id) {
   return FavList.findById(id)
-    .populate('favList');
+    .populate('favItems');
 }
 
 function deleteFavsList(id) {
