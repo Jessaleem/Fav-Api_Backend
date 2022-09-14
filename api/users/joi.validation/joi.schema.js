@@ -1,5 +1,7 @@
 const Joi = require('joi');
 
+const strongPassword = (/(?=.*[A-Z])[0-9a-zA-Z]{8,}$/);
+
 const userSchema = Joi.object({
   email:
   Joi.string()
@@ -7,8 +9,7 @@ const userSchema = Joi.object({
     .required(),
   password:
   Joi.string()
-    .alphanum()
-    .min(8)
+    .regex(strongPassword)
     .required(),
 });
 
