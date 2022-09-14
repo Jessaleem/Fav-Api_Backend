@@ -47,6 +47,7 @@ async function getOneFavListHander(req, res) {
 
 async function deleteFavListHandler(req, res) {
   const { id } = req.params;
+  console.log(req.params);
   try {
     const favList = await deleteFavsList(id);
     if (!favList) {
