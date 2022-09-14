@@ -15,10 +15,6 @@ const UserSchema = new mongoose.Schema({
     required: true,
     minlength: 8,
   },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
-  },
   favList: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'favoriteList',

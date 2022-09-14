@@ -1,7 +1,24 @@
 const FavList = require('./favList.model');
 
-function createFavList(list) {
+function createFavsList(list) {
   return FavList.create(list);
 }
 
-module.exports = { createFavList };
+function getAllFavsList() {
+  return FavList.find({});
+}
+
+function getFavsList(id) {
+  return FavList.findById(id);
+}
+
+function deleteFavsList(id) {
+  return FavList.findByIdAndRemove(id);
+}
+
+module.exports = {
+  createFavsList,
+  getAllFavsList,
+  getFavsList,
+  deleteFavsList,
+};
