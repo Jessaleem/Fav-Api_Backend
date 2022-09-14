@@ -18,3 +18,5 @@ app.listen(PORT, async () => {
 
   console.log(`Server running on port http://localhost:${PORT}`);
 });
+
+module.exports = { app };

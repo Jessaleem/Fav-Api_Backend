@@ -1,4 +1,4 @@
-const { createFavItem } = require('./favItems.services');
+const { createFavItem, deleteFavItem } = require('./favItems.services');
 const { updateFavsList } = require('../favList/favLists.services');
 
 async function createFavItemHandler(req, res) {
@@ -23,4 +23,20 @@ async function createFavItemHandler(req, res) {
   }
 }
 
-module.exports = { createFavItemHandler };
+async function deleteFavItemHandler(req, res) {
+  const { id } = req.params;
+  try {
+    const favItem = await deleteFavItem(id);
+    if (!favItem) {
+      return res.status(400).json({ message: 'Item not found' });
+    }
+    return res.status(200).json({ removed: favItem });
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
+}
+
+module.exports = {
+  createFavItemHandler,
+  deleteFavItemHandler,
+};

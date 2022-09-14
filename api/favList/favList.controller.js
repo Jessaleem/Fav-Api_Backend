@@ -47,13 +47,12 @@ async function getOneFavListHander(req, res) {
 
 async function deleteFavListHandler(req, res) {
   const { id } = req.params;
-  console.log(req.params);
   try {
     const favList = await deleteFavsList(id);
     if (!favList) {
       return res.status(400).json({ message: 'List not found' });
     }
-    return res.status(200).json(favList);
+    return res.status(200).json({ removed: favList });
   } catch (error) {
     return res.status(500).json({ error });
   }
