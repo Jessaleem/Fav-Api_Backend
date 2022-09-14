@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-underscore-dangle */
 const
   {
@@ -15,8 +16,8 @@ async function createFavListHandler(req, res) {
 
   try {
     const list = await createFavsList(data);
-    const user = await updateUser(id, { $push: { favList: list.id } });
-    return res.status(201).json(user);
+    await updateUser(id, { $push: { favList: list.id } });
+    return res.status(201).json(list);
   } catch (error) {
     console.log(error);
     return res.status(501).json({ error });
@@ -48,11 +49,11 @@ async function getOneFavListHander(req, res) {
 async function deleteFavListHandler(req, res) {
   const { id } = req.params;
   try {
-    const favList = await deleteFavsList(id);
-    if (!favList) {
+    const deleteFavList = await deleteFavsList(id);
+    if (!deleteFavList) {
       return res.status(400).json({ message: 'List not found' });
     }
-    return res.status(200).json({ removed: favList });
+    return res.status(200).json({ removed: deleteFavList });
   } catch (error) {
     return res.status(500).json({ error });
   }

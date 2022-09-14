@@ -12,8 +12,14 @@ function updateUser(id, user) {
   return User.findByIdAndUpdate(id, user, { new: true })
     .populate('favList');
 }
+
+function getSingleUser(id) {
+  return User.findById(id);
+}
+
 module.exports = {
   createUser,
   findUserByEmail,
   updateUser,
+  getSingleUser,
 };
