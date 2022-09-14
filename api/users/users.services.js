@@ -8,11 +8,12 @@ function findUserByEmail(email) {
   return User.findOne({ email });
 }
 
-function findUserById(id) {
-  return User.findById(id);
+function updateUser(id, user) {
+  return User.findByIdAndUpdate(id, user, { new: true })
+    .populate('favList');
 }
 module.exports = {
   createUser,
   findUserByEmail,
-  findUserById,
+  updateUser,
 };

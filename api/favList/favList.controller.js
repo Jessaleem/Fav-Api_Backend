@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const
   {
     createFavsList,
@@ -6,19 +7,16 @@ const
     deleteFavsList,
   } = require('./favLists.services');
 
-const { findUserById } = require('../users/users.services');
+const { updateUser } = require('../users/users.services');
 
 async function createFavListHandler(req, res) {
   const data = req.body;
   const { id } = req.user;
-  try {
-    const user = await findUserById(id).populate('favList');
 
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
+  try {
     const list = await createFavsList(data);
-    return res.status(201).json(list);
+    const user = await updateUser(id, { $push: { favList: list.id } });
+    return res.status(201).json(user);
   } catch (error) {
     console.log(error);
     return res.status(501).json({ error });

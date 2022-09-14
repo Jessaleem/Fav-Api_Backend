@@ -15,10 +15,10 @@ const UserSchema = new mongoose.Schema({
     required: true,
     minlength: 8,
   },
-  favList: {
+  favList: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'favoriteList',
-  },
+  }],
 }, { timestamps: true });
 
 UserSchema.pre('save', async function save(next) {
