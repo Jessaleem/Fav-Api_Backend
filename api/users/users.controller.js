@@ -1,12 +1,14 @@
-// const { createUser } = require('./users.services');
+const { createUser } = require('./users.services');
 
-// async function createUserHandler(req, res) {
-//   const data = req.body;
+async function createUserHandler(req, res) {
+  const data = req.body;
+  try {
+    const user = await createUser(data);
 
-//   try {
-//     const hash = crypto.createHash
+    return res.status(201).json(user);
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
+}
 
-//   } catch (error) {
-//     return res.status(500).json({ error: error.message });
-//   }
-// }
+module.exports = { createUserHandler };

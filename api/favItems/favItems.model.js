@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const FavItemsSchema = new mongoose.Schema({
+  favList: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'favoriteList',
+    required: true,
+  },
   title: {
     type: String,
     required: true,

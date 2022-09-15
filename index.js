@@ -9,7 +9,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3030;
 
-app.listen(PORT, async () => {
+const server = app.listen(PORT, async () => {
   configExpress(app);
 
   await connectDB();
@@ -18,3 +18,5 @@ app.listen(PORT, async () => {
 
   console.log(`Server running on port http://localhost:${PORT}`);
 });
+
+module.exports = { app, server };
