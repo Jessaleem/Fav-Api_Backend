@@ -2,7 +2,11 @@
 Jessaleem/Jessaleem-Fav-Api_Backend
 
 Fav-Api_Backend is a mission in wich I had to create an API that allows to provide a better way to organize people's favorite things like clothes, music, courses, etc.
+
 considerations:
+
+url: '//localhost:8080'
+script to run: npm run dev
 
 1. Each user has an unique id. 
 You can create your acount with your email and password with a 'POST' method in the `/api/users` route, 
